@@ -1,16 +1,17 @@
 version: '3'
 services:
-    application:
-        build:
-           context: .
-           dockerfile: ./Dockerfile.dev
-        ports: 
-            - "8080:8080"
-        volumes:
-            - .:/app
     redis:
         image: redis
         container_name: redis
     kafka:
         image: bitnami/kafka
         container_name: kafka
+        environment:
+         - ALLOW_PLAINTEXT_LISTENER=yes
+    application:
+        build:
+           context: .
+           dockerfile: ./Dockerfile
+        ports:
+            - "8080:8080"
+

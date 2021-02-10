@@ -1,4 +1,5 @@
 FROM golang
-COPY . /app
-WORKDIR app
-ENTRYPOINT ["./start.sh"]
+ADD . /app
+WORKDIR /app
+RUN chmod +x start.sh
+CMD ./start.sh

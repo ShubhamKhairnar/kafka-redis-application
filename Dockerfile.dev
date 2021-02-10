@@ -1,3 +1,0 @@
-FROM golang
-WORKDIR app
-ENTRYPOINT ["./start.sh"]
